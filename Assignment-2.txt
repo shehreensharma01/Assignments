@@ -1,0 +1,51 @@
+import os
+import shutil
+
+def write_records():
+    f = open("students.txt", "w")
+    name = input("Enter Name: ")
+    roll = input("Enter Roll Number: ")
+    marks = input("Enter Marks: ")
+    f.write(f"{name}, {roll}, {marks}\n")
+    f.close()
+    print(" Record written in students.txt")
+
+def read_records():
+    try:
+        f = open("students.txt", "r")
+        print("\n--- File Content ---")
+        print(f.read())
+        f.close()
+    except:
+        print("students.txt not found")
+
+def rename_file():
+    if os.path.exists("students.txt"):
+        os.rename("students.txt", "student_records.txt")
+        print(" File renamed")
+    else:
+        print("students.txt not found")
+
+def directory_ops():
+    os.mkdir("SchoolData")
+    shutil.move("student_records.txt", "SchoolData")
+    print(" File moved to SchoolData")
+    print("Files in SchoolData:", os.listdir("SchoolData"))
+
+def delete_ops():
+    os.remove("SchoolData/student_records.txt")
+    os.rmdir("SchoolData")
+    print(" File and folder deleted")
+
+
+while True:
+    print("\n1. Write\n2. Read\n3. Rename\n4. Directory Ops\n5. Delete\n6. Exit")
+    ch = input("Enter choice: ")
+
+    if ch == "1": write_records()
+    elif ch == "2": read_records()
+    elif ch == "3": rename_file()
+    elif ch == "4": directory_ops()
+    elif ch == "5": delete_ops()
+    elif ch == "6": break
+    else: print(" Invalid choice")
