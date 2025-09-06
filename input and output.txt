@@ -1,0 +1,14 @@
+Print the even lines in different file and odd lines in different file in python
+
+with open("inputfile.txt", "r") as f, \
+     open("odd_file.txt", "w") as f1, \
+     open("even_file.txt", "w") as f2:
+
+    for line_no, line in enumerate(f, start=1):
+        if line_no % 2 == 0:
+            f2.write(line)   # even lines
+        else:
+            f1.write(line)   # odd lines
+
+print(" Odd lines are saved in odd_file.txt")
+print(" Even lines are saved in even_file.txt")

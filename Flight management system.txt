@@ -1,0 +1,54 @@
+# Custom Exceptions
+class FlightNotFoundError(Exception):
+    pass
+
+class SeatsUnavailableError(Exception):
+    pass
+
+
+try:
+    # Read flights from file
+    flights = {}
+    with open("flights.txt", "r") as f:
+        for line in f:
+            flight_no, seats, price = line.strip().split()
+            flights[flight_no] = [int(seats), int(price)]
+
+    try:
+        # User input
+        flight_no = input("Enter Flight Number: ").strip()
+        tickets = int(input("Enter number of tickets: "))
+
+        # Check flight
+        if flight_no not in flights:
+            raise FlightNotFoundError("Flight does not exist!")
+
+        available, price = flights[flight_no]
+
+        # Check seats
+        if tickets > available:
+            raise SeatsUnavailableError("Not enough seats available!")
+
+        # Booking calculation
+        total_cost = tickets * price
+        try:
+            discount_per_ticket = total_cost / tickets
+        except ZeroDivisionError:
+            discount_per_ticket = 0
+
+        # Print details
+        print("\nFlight Details:")
+        print("Flight:", flight_no)
+        print("Available Seats:", available)
+        print("Price per Ticket:", price)
+        print("Total Booking Cost:", total_cost)
+        print("Discount per Ticket:", discount_per_ticket)
+
+    except ValueError:
+        print("Invalid input! Please enter a valid number.")
+
+    except (FlightNotFoundError, SeatsUnavailableError) as e:
+        print("Error:", e)
+
+finally:
+    print("\nFile closed. Program ended.")

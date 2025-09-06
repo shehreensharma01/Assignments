@@ -1,0 +1,161 @@
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/Python/Git Bash (main)
+$ cd ~/Desktop/python/"Git Bash"
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ git init
+Reinitialized existing Git repository in C:/Users/Admin/Desktop/Python/Git Bash/
+.git/
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ git config --global user.name "shehreensharma01"
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ git config --global user.email "shehreensharma01@gmail.com"
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ echo "This is student file">student.txt
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ echo "This is employee file"> employee.txt
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ echo "This is dept file">dept.txt
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ ls
+dept.txt  employee.txt  student.txt
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ git add student.txt employee.txt
+warning: in the working copy of 'employee.txt', LF will be replaced by CRLF the
+next time Git touches it
+warning: in the working copy of 'student.txt', LF will be replaced by CRLF the n
+ext time Git touches it
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ git add dept.txt
+warning: in the working copy of 'dept.txt', LF will be replaced by CRLF the next
+ time Git touches it
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ git restore --staged employee.txt
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ git restore employee.txt
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ echo "Added some changes in student file">>student.txt
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ git add.
+git: 'add.' is not a git command. See 'git --help'.
+
+The most similar command is
+        add
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ git add .
+warning: in the working copy of 'student.txt', LF will be replaced by CRLF the n
+ext time Git touches it
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ git commit -m "Added student, employee, and dept files"
+[main 2a1a570] Added student, employee, and dept files
+ 1 file changed, 1 insertion(+)
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ git remote add origin https://github.com/shehreensharma01/Assignments.git
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ git branch
+* main
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ git push -u origin main
+info: please complete authentication in your browser...
+To https://github.com/shehreensharma01/Assignments.git
+ 
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ git remote -v
+origin  https://github.com/shehreensharma01/Assignments.git (fetch)
+origin  https://github.com/shehreensharma01/Assignments.git (push)
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ git log --oneline
+2a1a570 (HEAD -> main) Added student, employee, and dept files
+27a4b0f First commit - added student, employee and dept files
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ git push -u origin main --force
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (8/8), 643 bytes | 107.00 KiB/s, done.
+Total 8 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/shehreensharma01/Assignments.git
+ + 0bd2a1c...2a1a570 main -> main (forced update)
+branch 'main' set up to track 'origin/main'.
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ git pull origin main
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 908 bytes | 60.00 KiB/s, done.
+From https://github.com/shehreensharma01/Assignments
+ * branch            main       -> FETCH_HEAD
+   2a1a570..98d3ba1  main       -> origin/main
+Updating 2a1a570..98d3ba1
+Fast-forward
+ hello.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.txt
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ git add.
+git: 'add.' is not a git command. See 'git --help'.
+
+The most similar command is
+        add
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ git add .
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ git commit -m "Pushing all files"
+On branch main
+Your branch is up to date with 'origin/main'.
+
+nothing to commit, working tree clean
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ git push origin main
+Everything up-to-date
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ git rm dept.txt
+rm 'dept.txt'
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ git commit -m "Removed dept.txt"
+[main b3e63b1] Removed dept.txt
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 dept.txt
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$ git push origin main
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 225 bytes | 225.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/shehreensharma01/Assignments.git
+   98d3ba1..b3e63b1  main -> main
+
+Admin@DESKTOP-6HKICL2 MINGW64 ~/Desktop/python/Git Bash (main)
+$
