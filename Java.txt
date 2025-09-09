@@ -1,0 +1,217 @@
+package assignment.one;
+
+public class Shape {
+    double length, breadth, radius;
+
+    
+    Shape() {
+        System.out.println("Inside Default Constructor");
+        length = 0;
+        breadth = 0;
+        radius = 0;
+    }
+
+    Shape(double side) {
+        length = side;
+        breadth = side;
+    }
+
+    
+    Shape(double l, double b) {
+        length = l;
+        breadth = b;
+    }
+
+   
+    Shape(double r, boolean isCircle) {
+        radius = r;
+    }
+
+  
+    public void displaySquare() {
+        System.out.println("Area of Square = " + (length * breadth));
+    }
+
+   
+    public void displayRectangle() {
+        System.out.println("Area of Rectangle = " + (length * breadth));
+    }
+
+    
+    public void displayCircle() {
+        System.out.println("Area of Circle = " + (3.14 * radius * radius));
+    }
+
+   
+    public void area(double base, double height) {
+        System.out.println("Area of Triangle = " + (0.5 * base * height));
+    }
+
+   
+    public void area(double d1, double d2, String type) {
+        if (type.equalsIgnoreCase("rhombus")) {
+            System.out.println("Area of Rhombus = " + (0.5 * d1 * d2));
+        }
+    }
+
+    public static void main(String args[]) {
+        Shape s1 = new Shape();           // default constructor
+        Shape s2 = new Shape(5);          // square
+        Shape s3 = new Shape(4, 6);       // rectangle
+        Shape s4 = new Shape(7, true);    // circle
+
+        s2.displaySquare();
+        s3.displayRectangle();
+        s4.displayCircle();
+
+        s1.area(10, 12);          // triangle
+        s1.area(6, 8, "rhombus"); // rhombus
+    }
+}
+
+package assignment.two;
+
+public class Student {
+    String name;
+    int age;
+    char section;
+    char gender;
+    int subject1, subject2, subject3;
+    int total;
+    double percentage;
+
+    Student(String n, int a, char sec, char g, int s1, int s2, int s3) {
+        name = n;
+        age = a;
+        section = sec;
+        gender = g;
+        subject1 = s1;
+        subject2 = s2;
+        subject3 = s3;
+        calculate();
+    }
+
+    
+    Student(String n, int a, char sec, char g, int s2, int s3) {
+        name = n;
+        age = a;
+        section = sec;
+        gender = g;
+        subject1 = 0;
+        subject2 = s2;
+        subject3 = s3;
+        calculate();
+    }
+
+    void calculate() {
+        total = subject1 + subject2 + subject3;
+        percentage = total / 3.0;
+    }
+
+  
+    void display() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Section: " + section);
+        System.out.println("Gender: " + gender);
+        System.out.println("Marks: " + subject1 + ", " + subject2 + ", " + subject3);
+        System.out.println("Total: " + total);
+        System.out.println("Percentage: " + percentage + "%");
+        System.out.println("");
+    }
+
+    public static void main(String args[]) {
+        Student s1 = new Student("Armaan", 20, 'A', 'M', 80, 75, 90);
+        Student s2 = new Student("Bharat", 19, 'B', 'F', 85, 88);
+        Student s3 = new Student("Rahat", 21, 'A', 'M', 70, 65);
+        Student s4 = new Student("Rahul", 20, 'C', 'F', 95, 90, 92);
+
+        s1.display();
+        s2.display();
+        s3.display();
+        s4.display();
+    }
+}
+
+class Calculator {
+
+    int calculate(int a, int b) {
+        return a + b;
+    }
+
+   
+    int calculate(double radius) {
+        return (int)(Math.PI * radius * radius);
+    }
+
+   
+    int calculate(int length, int breadth) {
+        return length * breadth;
+    }
+
+    int calculate(float side) {
+        return (int)(side * side);
+    }
+
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+
+        System.out.println("Sum of 5 and 10: " + calc.calculate(5, 10));
+        System.out.println("Area of circle (r=7): " + calc.calculate(7.0));
+        System.out.println("Area of rectangle (5x8): " + calc.calculate(5, 8));
+        System.out.println("Area of square (side=4): " + calc.calculate(4.0f));
+    }
+}
+
+
+abstract class Marks {
+    abstract double getPercentage();
+}
+
+
+class A extends Marks {
+    int sub1, sub2, sub3;
+
+    A(int s1, int s2, int s3) {
+        sub1 = s1;
+        sub2 = s2;
+        sub3 = s3;
+    }
+
+   
+    double getPercentage() {
+        int total = sub1 + sub2 + sub3;
+        return (total / 300.0) * 100;
+    }
+}
+
+// Student B (4 subjects)
+class B extends Marks {
+    int sub1, sub2, sub3, sub4;
+
+    B(int s1, int s2, int s3, int s4) {
+        sub1 = s1;
+        sub2 = s2;
+        sub3 = s3;
+        sub4 = s4;
+    }
+
+    @Override
+    double getPercentage() {
+        int total = sub1 + sub2 + sub3 + sub4;
+        return (total / 400.0) * 100;
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+        A studentA = new A(85, 90, 80);  
+        B studentB = new B(75, 88, 92, 81);
+
+        System.out.println("Percentage of Student A: " + studentA.getPercentage() + "%");
+        System.out.println("Percentage of Student B: " + studentB.getPercentage() + "%");
+    }
+}
+
+
