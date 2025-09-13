@@ -1,0 +1,109 @@
+
+Assignment 1: Gmail Login
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+import time
+
+# Setup Chrome driver
+driver = webdriver.Chrome()
+
+# Open Gmail
+driver.get("https://mail.google.com/")
+
+# Enter email
+email = driver.find_element(By.ID, "identifierId")
+email.send_keys("your_email@gmail.com")
+driver.find_element(By.ID, "identifierNext").click()
+
+time.sleep(3)
+
+# Enter password
+password = driver.find_element(By.NAME, "password")
+password.send_keys("your_password")
+driver.find_element(By.ID, "passwordNext").click()
+
+# Wait and close
+time.sleep(5)
+driver.quit()
+
+
+⚠️ Important: Never share real credentials in code that others can access. Use environment variables or input prompts.
+
+Assignment 2: Amazon Search and Filter
+driver = webdriver.Chrome()
+driver.get("https://www.amazon.com/")
+
+# Search for pen drive
+search_box = driver.find_element(By.ID, "twotabsearchtextbox")
+search_box.send_keys("pen drive")
+search_box.send_keys(Keys.RETURN)
+
+time.sleep(3)
+
+# Apply 16 GB filter (example, adjust based on site layout)
+driver.find_element(By.XPATH, "//span[text()='16 GB']").click()
+time.sleep(3)
+
+# Select first product
+product = driver.find_element(By.XPATH, "(//span[@class='a-size-medium a-color-base a-text-normal'])[1]")
+product.click()
+
+time.sleep(3)
+
+# Go back
+driver.back()
+time.sleep(3)
+driver.quit()
+
+Assignment 3: LambdaTest Sign Up
+driver = webdriver.Chrome()
+driver.get("https://www.lambdatest.com")
+
+# Click Sign up
+driver.find_element(By.LINK_TEXT, "Sign Up").click()
+time.sleep(2)
+
+# Fill sign up form
+driver.find_element(By.NAME, "name").send_keys("John Doe")
+driver.find_element(By.NAME, "email").send_keys("john@example.com")
+driver.find_element(By.NAME, "password").send_keys("Password123")
+
+# Clear all fields
+driver.find_element(By.NAME, "name").clear()
+driver.find_element(By.NAME, "email").clear()
+driver.find_element(By.NAME, "password").clear()
+
+# Go back
+driver.back()
+time.sleep(2)
+
+# Click Sign up again
+driver.find_element(By.LINK_TEXT, "Sign Up").click()
+time.sleep(2)
+driver.quit()
+
+Assignment 4: Registration Form Automation
+driver = webdriver.Chrome()
+driver.get("http://demo.automationtesting.in/Register.html")
+
+# Fill the form
+driver.find_element(By.XPATH, "//input[@placeholder='First Name']").send_keys("Abc")
+driver.find_element(By.XPATH, "//input[@placeholder='Last Name']").send_keys("Def")
+driver.find_element(By.XPATH, "//textarea[@ng-model='Adress']").send_keys("123 Main Street")
+driver.find_element(By.XPATH, "//input[@ng-model='EmailAdress']").send_keys("abc@example.com")
+driver.find_element(By.XPATH, "//input[@ng-model='Phone']").send_keys("1234567890")
+
+# Gender
+driver.find_element(By.XPATH, "//input[@value='Male']").click()
+
+# Hobbies
+driver.find_element(By.ID, "checkbox1").click()  # Example for hobbies
+
+# Skills dropdown
+from selenium.webdriver.support.ui import Select
+skills = Select(driver.find_element(By.ID, "Skills"))
+skills.select_by_visible_text("Java")
+
+time.sleep(5)
+driver.quit()
